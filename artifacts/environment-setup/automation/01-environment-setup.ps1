@@ -160,7 +160,12 @@ $amlid = (Get-AzADServicePrincipal -DisplayName $amlworkspacename).id
 Set-AzKeyVaultAccessPolicy -ResourceGroupName $resourceGroupName -VaultName $keyVaultName -ObjectId $amlid -PermissionsToSecrets set,delete,get,list
 
 #remove need to ask for the password in script.
-$global:sqlPassword = $(Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "SqlPassword").SecretValueText
+#$global:sqlPassword = $(Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "SqlPassword").SecretValueText
+
+#remove need to ask for the password in script - updated way to retrieve it.
+$secret4pw = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "SqlPassword"
+$SecurePassword4pw = $secret4pw.SecretValue
+$global:sqlPassword = [System.Net.NetworkCredential]::new("", $SecurePassword4pw).Password
 
 Write-Information "Create SQL-USER-ASA Key Vault Secret"
 $secretValue = ConvertTo-SecureString $sqlPassword -AsPlainText -Force
