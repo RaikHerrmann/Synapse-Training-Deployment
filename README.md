@@ -256,6 +256,8 @@ You may encounter a few errors and warnings during the script execution. The err
 
     ![Errors are displayed.](media/error-notebook-create.png "Notebook creation errors")
 
+3. PBI Errors at the end of the script. 
+
 ### Task 4: Configure Power BI dataset credentials
 
 Complete this task after setup has completed.
