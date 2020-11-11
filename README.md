@@ -169,7 +169,7 @@ The entire script will take between 1.5 and 2 hours to complete. Major steps inc
 
     cd c:\labfiles
 
-    git clone https://github.com/solliancenet/synapse-training-deployment.git synapse-training-deployment
+    git clone https://github.com/RaikHerrmann/Synapse-Training-Deployment.git synapse-training-deployment
     ```
 
 * Install Azure PowerShell module
